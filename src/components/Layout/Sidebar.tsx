@@ -10,6 +10,9 @@ import {
   List,
   Settings,
   ChevronRight,
+  Briefcase,
+  ClipboardList,
+  UserCircle,
 } from 'lucide-react'
 import { useAccounting } from '../../context/AccountingContext'
 import type { ActiveView } from '../../types'
@@ -23,6 +26,9 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'dashboard',       label: 'Tableau de Bord',      icon: LayoutDashboard, group: 'general' },
+  { id: 'job-dashboard',   label: 'Suivi Carrière',       icon: Briefcase,        group: 'carriere' },
+  { id: 'job-list',        label: 'Mes Candidatures',     icon: ClipboardList,    group: 'carriere' },
+  { id: 'job-profile',     label: 'Mon Profil',           icon: UserCircle,       group: 'carriere' },
   { id: 'new-entry',       label: 'Nouvelle Écriture',    icon: PlusCircle,       group: 'comptabilite' },
   { id: 'journal',         label: 'Journal Général',      icon: BookOpen,         group: 'comptabilite' },
   { id: 'plan-comptable',  label: 'Plan Comptable',       icon: List,             group: 'comptabilite' },
@@ -36,6 +42,7 @@ const NAV_ITEMS: NavItem[] = [
 
 const GROUP_LABELS: Record<string, string> = {
   general:       'Général',
+  carriere:      'Carrière',
   comptabilite:  'Comptabilité',
   evidences:     'Documents',
   rapports:      'Rapports OHADA',
@@ -82,7 +89,10 @@ export default function Sidebar() {
             </p>
             {items.map(item => {
               const Icon = item.icon
-              const active = state.activeView === item.id
+              const jobListViews = ['job-list', 'job-new', 'job-edit', 'job-detail'] as const
+              const active =
+                state.activeView === item.id ||
+                (item.id === 'job-list' && (jobListViews as readonly string[]).includes(state.activeView))
               return (
                 <button
                   key={item.id}

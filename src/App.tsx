@@ -1,4 +1,5 @@
 import { AccountingProvider, useAccounting } from './context/AccountingContext'
+import { JobProvider } from './context/JobContext'
 import Sidebar from './components/Layout/Sidebar'
 import Header from './components/Layout/Header'
 import Overview from './components/Dashboard/Overview'
@@ -11,6 +12,11 @@ import CompteResultat from './components/Reports/CompteResultat'
 import CashFlow from './components/Reports/CashFlow'
 import RatiosDashboard from './components/Reports/Ratios'
 import Parametres from './components/Settings/Parametres'
+import JobDashboard from './components/Jobs/JobDashboard'
+import ApplicationList from './components/Jobs/ApplicationList'
+import ApplicationForm from './components/Jobs/ApplicationForm'
+import ApplicationDetail from './components/Jobs/ApplicationDetail'
+import ProfileManager from './components/Profile/ProfileManager'
 
 function AppContent() {
   const { state } = useAccounting()
@@ -27,6 +33,12 @@ function AppContent() {
       case 'cash-flow':        return <CashFlow />
       case 'ratios':           return <RatiosDashboard />
       case 'parametres':       return <Parametres />
+      case 'job-dashboard':    return <JobDashboard />
+      case 'job-list':         return <ApplicationList />
+      case 'job-new':          return <ApplicationForm />
+      case 'job-edit':         return <ApplicationForm />
+      case 'job-detail':       return <ApplicationDetail />
+      case 'job-profile':      return <ProfileManager />
       default:                 return <Overview />
     }
   }
@@ -47,7 +59,9 @@ function AppContent() {
 export default function App() {
   return (
     <AccountingProvider>
-      <AppContent />
+      <JobProvider>
+        <AppContent />
+      </JobProvider>
     </AccountingProvider>
   )
 }
