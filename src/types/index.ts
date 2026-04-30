@@ -146,6 +146,12 @@ export type ActiveView =
   | 'ratios'
   | 'plan-comptable'
   | 'parametres'
+  | 'job-dashboard'
+  | 'job-list'
+  | 'job-new'
+  | 'job-edit'
+  | 'job-detail'
+  | 'job-profile'
 
 export interface AppState {
   company: Company

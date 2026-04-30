@@ -3,16 +3,22 @@ import { useAccounting } from '../../context/AccountingContext'
 import { formatDateLong } from '../../utils/format'
 
 const VIEW_TITLES: Record<string, { title: string; subtitle: string }> = {
-  dashboard:       { title: 'Tableau de Bord',       subtitle: 'Vue d\'ensemble financière' },
-  journal:         { title: 'Journal Général',        subtitle: 'Toutes les écritures comptables' },
-  'new-entry':     { title: 'Nouvelle Écriture',      subtitle: 'Saisie d\'une opération comptable' },
-  evidences:       { title: 'Pièces Justificatives',  subtitle: 'Gestion des preuves et documents' },
-  bilan:           { title: 'Bilan Comptable',        subtitle: 'État de la situation financière' },
-  'compte-resultat': { title: 'Compte de Résultat',  subtitle: 'Résultat des activités ordinaires et HAO' },
-  'cash-flow':     { title: 'Flux de Trésorerie',     subtitle: 'Tableau des flux de trésorerie OHADA' },
-  ratios:          { title: 'Ratios Financiers',      subtitle: 'Analyse et diagnostic OHADA' },
-  'plan-comptable':{ title: 'Plan Comptable',         subtitle: 'SYSCOHADA Révisé – Classes 1 à 8' },
-  parametres:      { title: 'Paramètres',             subtitle: 'Configuration de l\'entreprise' },
+  dashboard:         { title: 'Tableau de Bord',         subtitle: 'Vue d\'ensemble financière' },
+  journal:           { title: 'Journal Général',          subtitle: 'Toutes les écritures comptables' },
+  'new-entry':       { title: 'Nouvelle Écriture',        subtitle: 'Saisie d\'une opération comptable' },
+  evidences:         { title: 'Pièces Justificatives',    subtitle: 'Gestion des preuves et documents' },
+  bilan:             { title: 'Bilan Comptable',          subtitle: 'État de la situation financière' },
+  'compte-resultat': { title: 'Compte de Résultat',       subtitle: 'Résultat des activités ordinaires et HAO' },
+  'cash-flow':       { title: 'Flux de Trésorerie',       subtitle: 'Tableau des flux de trésorerie OHADA' },
+  ratios:            { title: 'Ratios Financiers',        subtitle: 'Analyse et diagnostic OHADA' },
+  'plan-comptable':  { title: 'Plan Comptable',           subtitle: 'SYSCOHADA Révisé – Classes 1 à 8' },
+  parametres:        { title: 'Paramètres',               subtitle: 'Configuration de l\'entreprise' },
+  'job-dashboard':   { title: 'Suivi de Carrière',        subtitle: 'Vue d\'ensemble de vos candidatures' },
+  'job-list':        { title: 'Mes Candidatures',         subtitle: 'Gérez et suivez toutes vos candidatures' },
+  'job-new':         { title: 'Nouvelle Candidature',     subtitle: 'Ajouter une demande d\'emploi' },
+  'job-edit':        { title: 'Modifier la Candidature',  subtitle: 'Mettre à jour les informations' },
+  'job-detail':      { title: 'Détail Candidature',       subtitle: 'Historique et informations complètes' },
+  'job-profile':     { title: 'Mon Profil',               subtitle: 'Compétences, expériences et objectifs' },
 }
 
 export default function Header() {
